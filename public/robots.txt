@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://opale-noire-travel.vercel.app/sitemap.xml
+Sitemap: https://opalenoiretravel.vercel.app/sitemap.xml
