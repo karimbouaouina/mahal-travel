@@ -1,0 +1,21 @@
+import type { MetadataRoute } from "next";
+
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: "Opale Noire",
+    short_name: "Opale Noire",
+    description: "Reservations d'hotels, groupes et seminaires en Tunisie.",
+    start_url: "/",
+    display: "standalone",
+    background_color: "#07070a",
+    theme_color: "#07070a",
+    lang: "fr",
+    icons: [
+      {
+        src: "/images/whiteOutlineLogoWithoutText.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
+    ],
+  };
+}
