@@ -68,10 +68,10 @@ export const metadata: Metadata = {
       "Selection d'hotels, reservations groupes et accompagnement seminaire en Tunisie, avec un focus fort sur Sousse.",
     images: [
       {
-        url: "/images/whiteOutlineLogoWithoutText.png",
-        width: 512,
-        height: 512,
-        alt: "Logo Opale Noire",
+        url: "/images/ONWINDOW.png",
+        width: 1280,
+        height: 718,
+        alt: "Apercu du site Opale Noire",
       },
     ],
   },
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     title: "Opale Noire | Reservation d'hotels et seminaires en Tunisie",
     description:
       "Reservations d'hotels, groupes et seminaires en Tunisie avec un focus fort sur Sousse.",
-    images: ["/images/whiteOutlineLogoWithoutText.png"],
+    images: ["/images/ONWINDOW.png"],
   },
 };
 

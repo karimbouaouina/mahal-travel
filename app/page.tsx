@@ -80,7 +80,7 @@ const structuredData = {
       name: "Opale Noire",
       url: "https://opale-noire-travel.vercel.app",
       logo: "https://opale-noire-travel.vercel.app/images/whiteOutlineLogoWithoutText.png",
-      image: "https://opale-noire-travel.vercel.app/images/whiteOutlineLogoWithoutText.png",
+      image: "https://opale-noire-travel.vercel.app/images/ONWINDOW.png",
       telephone: "+21698503197",
       email: "contact@opalenoire.tn",
       areaServed: ["Tunisie", "Sousse", "Hammamet", "Monastir"],
