@@ -4,36 +4,213 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import { DottedMap } from "@/components/dotted-map";
-import { HotelGallery } from "@/components/hotel-gallery";
+import { HeroLottie } from "@/components/hero-lottie";
+import { HotelGallery, type GalleryItem } from "@/components/hotel-gallery";
 import { LogoMarquee } from "@/components/logo-marquee";
 import { Steps } from "@/components/steps";
 import { TestimonialsCarousel } from "@/components/testimonials-carousel";
 
-const featuredHotels = [
+const hotelImagePool = {
+  mouradi: "/images/hotels/ChaineMouradi1200x675.png",
+  iberostar: "/images/hotels/iberostar1200x675.jpg",
+  concorde: "/images/hotels/concorde1200x675.jpg",
+  marhaba: "/images/hotels/ChaineMarhaba1200x675.png",
+  bellevue: "/images/hotels/BelleVue1200x675.png",
+} as const;
+
+type GalleryCollection = {
+  key: string;
+  title: string;
+  heading: string;
+  description: string;
+  items: GalleryItem[];
+};
+
+const galleryCollections: GalleryCollection[] = [
   {
-    src: "/images/hotels/ChaineMouradi1200x675.png",
-    title: "Chaine Mouradi",
-    location: "Sousse",
+    key: "sousse",
+    title: "Sousse",
+    heading: "Exemples d'hotels a Sousse",
+    description: "Une selection locale solide pour les sejours premium, les groupes et les formats seminaires.",
+    items: [
+      {
+        src: hotelImagePool.iberostar,
+        title: "Iberostar Diar El Andalous",
+        location: "Sousse",
+      },
+      {
+        src: hotelImagePool.concorde,
+        title: "Concorde Green Park Palace",
+        location: "Sousse",
+      },
+      {
+        src: hotelImagePool.marhaba,
+        title: "Chaine Marhaba",
+        location: "Sousse",
+      },
+      {
+        src: hotelImagePool.bellevue,
+        title: "Bellevue Park",
+        location: "Sousse",
+      },
+      {
+        src: hotelImagePool.mouradi,
+        title: "Chaine Mouradi",
+        location: "Sousse",
+      },
+      {
+        src: hotelImagePool.marhaba,
+        title: "Tej Marhaba",
+        location: "Sousse",
+      },
+    ],
   },
   {
-    src: "/images/hotels/iberostar1200x675.jpg",
-    title: "Iberostar Diar El Andalous",
-    location: "Sousse",
+    key: "monastir",
+    title: "Monastir",
+    heading: "Exemples d'hotels a Monastir",
+    description: "Des apercus de reference pour visualiser le type d'options que nous pouvons cadrer sur Monastir.",
+      items: [
+        {
+          src: "/images/hotels/royalThalassaMonastir1200x675.jpg",
+          title: "Royal Thalassa Monastir",
+          location: "Monastir",
+        },
+        {
+          src: "/images/hotels/iberostarKuriatPalace1200x675.png",
+          title: "Iberostar Selection Kuriat Palace",
+          location: "Monastir",
+        },
+        {
+          src: "/images/hotels/hotelTropicanaMonastir1200x675.jpg",
+          title: "Hotel Tropicana Monastir",
+          location: "Monastir",
+        },
+        {
+          src: "/images/hotels/skanesSerail1200x675.png",
+          title: "Skanes Serail",
+          location: "Monastir",
+        },
+        {
+          src: "/images/hotels/AmirPalace1200x675.jpg",
+          title: "Amir Palace",
+          location: "Monastir",
+        },
+        {
+          src: "/images/hotels/hiltonSkanesMonastir1200x675.jpg",
+          title: "Hilton Skanes Monastir Beach Resort",
+          location: "Monastir",
+        },
+      ],
   },
   {
-    src: "/images/hotels/concorde1200x675.jpg",
-    title: "Concorde Green Park Palace",
-    location: "Sousse",
+    key: "hammamet",
+    title: "Hammamet",
+    heading: "Exemples d'hotels a Hammamet",
+    description: "Une lecture rapide des formats resort, week-end et sejours plus detente sur Hammamet.",
+    items: [
+      {
+        src: "/images/hotels/HasdrubalHammamet1200x675.png",
+        title: "Hasdrubal Thalassa & Spa Yasmine Hammamet",
+        location: "Hammamet",
+      },
+      {
+        src: "/images/hotels/Mehari1200x675.png",
+        title: "Hotel Mehari Hammamet",
+        location: "Hammamet",
+      },
+      {
+        src: "/images/hotels/TheOrangers1200x675.png",
+        title: "The Orangers Garden Villas & Bungalows",
+        location: "Hammamet",
+      },
+      {
+        src: "/images/hotels/RoyalTulipTajSoltan1200x675.jpg",
+        title: "Royal Tulip Taj Sultan",
+        location: "Hammamet",
+      },
+      {
+        src: "/images/hotels/SteigenbergerHammamet1200x675.jpg",
+        title: "Steigenberger Marhaba Thalasso Hammamet",
+        location: "Hammamet",
+      },
+      {
+        src: "/images/hotels/laBadira1200x675.jpg",
+        title: "La Badira",
+        location: "Hammamet",
+      },
+    ],
   },
   {
-    src: "/images/hotels/ChaineMarhaba1200x675.png",
-    title: "Chaine Marhaba",
-    location: "Sousse",
+    key: "djerba",
+    title: "Djerba",
+    heading: "Exemples d'hotels a Djerba",
+    description: "Des exemples resort et balneaires pour projeter des formats loisirs, all inclusive ou groupes.",
+    items: [
+      {
+        src: "/images/hotels/IberostarSelectionDjerba1200x675.png",
+        title: "Iberostar Selection Eolia Djerba",
+        location: "Djerba",
+      },
+      {
+        src: "/images/hotels/HasdrubalDjerba1200x675.png",
+        title: "Hasdrubal Prestige Thalassa & Spa Djerba",
+        location: "Djerba",
+      },
+      {
+        src: "/images/hotels/RadissonBluDjerba1200x675.png",
+        title: "Radisson Blu Palace Resort & Thalasso, Djerba",
+        location: "Djerba",
+      },
+      {
+        src: "/images/hotels/RoyalGardenPalaceDjerba1200x675.png",
+        title: "Royal Garden Palace",
+        location: "Djerba",
+      },
+      {
+        src: "/images/hotels/PalmBeachDjerba1200x675.png",
+        title: "Palm Beach Palace Djerba",
+        location: "Djerba",
+      },
+      {
+        src: "/images/hotels/PlazaDjerba1200x675.png",
+        title: "Djerba Plaza Thalasso & Spa",
+        location: "Djerba",
+      },
+    ],
   },
   {
-    src: "/images/hotels/BelleVue1200x675.png",
-    title: "Bellevue Park",
-    location: "Sousse",
+    key: "tabarka",
+    title: "Tabarka",
+    heading: "Exemples d'hotels a Tabarka",
+    description: "Des exemples plus calmes et plus nature pour illustrer un autre ton de sejour en Tunisie.",
+    items: [
+      {
+        src: "/images/hotels/LaCigaleTabarka1200x675.png",
+        title: "La Cigale Tabarka Hotel Thalasso Golf",
+        location: "Tabarka",
+      },
+      {
+        src: "/images/hotels/GoldenMehariTabarka1200x675.png",
+        title: "Golden Yasmine Mehari Tabarka",
+        location: "Tabarka",
+      },
+      {
+        src: "/images/hotels/ItropikaTabarka1200x675.png",
+        title: "Itropika Hotel",
+        location: "Tabarka",
+      },
+      {
+        src: "/images/hotels/DarIsmailTabarka1200x675.png",
+        title: "Dar Ismail Tabarka",
+        location: "Tabarka",
+      },
+      {
+        src: "/images/hotels/ThabracaTabarka1200x675.png",
+        title: "Thabraca Thalasso & Diving",
+        location: "Tabarka",
+      },
+    ],
   },
 ];
 
@@ -83,7 +260,7 @@ const structuredData = {
       image: "https://opalenoiretravel.vercel.app/images/ONWINDOW.png",
       telephone: "+21698503197",
       email: "contact@opalenoire.tn",
-      areaServed: ["Tunisie", "Sousse", "Monastir", "Hammamet", "Djerba"],
+      areaServed: ["Tunisie", "Sousse", "Monastir", "Hammamet", "Djerba", "Tabarka"],
       description:
         "Reservation d'hotels, groupes et seminaires en Tunisie avec un accompagnement clair sur plusieurs destinations.",
     },
@@ -118,6 +295,11 @@ const destinationCards = [
     text: "Une destination utile pour les demandes soleil, detente, all inclusive et formats loisirs plus immersifs.",
   },
   {
+    title: "Tabarka",
+    subtitle: "Nature, calme et sejours singuliers",
+    text: "Une option interessante pour des demandes plus calmes, plus vertes ou des sejours avec un decor different.",
+  },
+  {
     title: "Seminaires",
     subtitle: "Salle, hebergement, cadence",
     text: "Pour un format equipe ou business, nous cadrons le sejour dans son ensemble et pas seulement les chambres.",
@@ -128,6 +310,7 @@ export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
   const [splashLeaving, setSplashLeaving] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [galleryIndex, setGalleryIndex] = useState(0);
 
   const whatsappUrl =
     "https://wa.me/21698503197?text=" +
@@ -183,6 +366,12 @@ export default function Home() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const activeGallery = galleryCollections[galleryIndex];
+
+  const cycleGallery = (dir: -1 | 1) => {
+    setGalleryIndex((current) => (current + dir + galleryCollections.length) % galleryCollections.length);
+  };
 
   return (
     <div className="flex flex-1 flex-col">
@@ -276,33 +465,10 @@ export default function Home() {
                     Voir la selection
                   </a>
                 </div>
-
               </div>
 
               <div className="lg:col-span-5">
-                <div className="reveal card ring-glow relative overflow-hidden rounded-[2rem] p-6 md:p-7">
-                  <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
-                  <div className="pointer-events-none absolute -right-20 top-5 h-44 w-44 rounded-full bg-white/8 blur-3xl" />
-                  <div className="pointer-events-none absolute -left-12 bottom-2 h-36 w-36 rounded-full bg-white/6 blur-3xl" />
-
-                  <div className="relative">
-                    <div className="text-sm font-semibold text-white">Demande rapide</div>
-                    <div className="mt-1 text-xs text-white/52">Hotels, groupes et seminaires en Tunisie</div>
-                    <p className="mt-6 text-sm leading-7 text-white/64">
-                      Un seul message suffit pour cadrer le besoin, la destination, le niveau de standing et le format
-                      du sejour ou du seminaire.
-                    </p>
-
-                    <a
-                      className="mt-8 inline-flex w-full items-center justify-center rounded-[1.4rem] bg-green-500 px-5 py-3 text-sm font-semibold text-black transition hover:scale-[1.01] hover:bg-green-400"
-                      href={whatsappUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Recevoir des options
-                    </a>
-                  </div>
-                </div>
+                <HeroLottie className="reveal" />
               </div>
             </div>
           </div>
@@ -327,7 +493,7 @@ export default function Home() {
                   <div className="text-sm font-semibold text-white">Carte</div>
                   <div className="mt-1 text-xs text-white/52">Focus Tunisie</div>
                 </div>
-                <div className="text-xs text-white/42">Sousse • Monastir • Hammamet • Djerba</div>
+                <div className="text-xs text-white/42">Sousse • Monastir • Hammamet • Djerba • Tabarka</div>
               </div>
 
               <div className="mt-6 aspect-[2/1] w-full">
@@ -358,7 +524,7 @@ export default function Home() {
             </div>
 
             <div className="lg:col-span-7">
-              <div className="grid gap-4 md:grid-cols-2">
+              <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {destinationCards.map((item) => (
                   <div
                     key={item.title}
@@ -374,14 +540,36 @@ export default function Home() {
           </div>
 
           <div className="reveal mx-auto mt-6 max-w-5xl rounded-[2rem] border border-white/10 bg-black/22 p-6 md:p-7">
-            <div className="mx-auto max-w-2xl text-center">
-              <div className="text-sm font-semibold text-white">Exemples d&apos;hotels a Sousse</div>
-              <div className="mt-2 text-sm leading-6 text-white/58">
-                Clique pour ouvrir les apercus en plein ecran avec les visuels locaux selectionnes.
+            <div className="mx-auto max-w-3xl text-center">
+              <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-6 md:gap-12">
+                <button
+                  type="button"
+                  onClick={() => cycleGallery(-1)}
+                  aria-label="Afficher la destination precedente"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/[0.04] text-white/88 transition hover:bg-white/[0.08]"
+                >
+                  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+                    <path d="M15 6 9 12l6 6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                <div className="min-w-0">
+                  <div className="text-sm font-semibold text-white">{activeGallery.heading}</div>
+                  <div className="mt-2 text-sm leading-6 text-white/58">{activeGallery.description}</div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => cycleGallery(1)}
+                  aria-label="Afficher la destination suivante"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/[0.04] text-white/88 transition hover:bg-white/[0.08]"
+                >
+                  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+                    <path d="m9 6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
               </div>
             </div>
 
-            <HotelGallery className="mt-6" items={featuredHotels} trailingLabel="Et bien plus encore." />
+            <HotelGallery className="mt-6" items={activeGallery.items} collectionLabel={activeGallery.title} />
           </div>
         </section>
 

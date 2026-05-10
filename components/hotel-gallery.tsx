@@ -14,10 +14,12 @@ export function HotelGallery({
   items,
   className,
   trailingLabel,
+  collectionLabel,
 }: {
   items: GalleryItem[];
   className?: string;
   trailingLabel?: string;
+  collectionLabel?: string;
 }) {
   const [openIndex, setOpenIndex] = React.useState<number | null>(null);
   const open = openIndex !== null ? items[openIndex] : null;
@@ -63,7 +65,7 @@ export function HotelGallery({
           >
             <div className="flex h-full w-full items-center justify-center p-4 md:p-8">
               <div
-                className="relative grid h-full max-h-[90vh] w-full max-w-7xl overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 shadow-[0_32px_120px_rgba(0,0,0,0.55)] lg:grid-cols-[minmax(0,1fr)_340px]"
+                className="relative grid h-full max-h-[92vh] w-full max-w-7xl overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 shadow-[0_32px_120px_rgba(0,0,0,0.55)] 2xl:grid-cols-[minmax(0,1fr)_380px]"
                 onMouseDown={(e) => e.stopPropagation()}
               >
                 <div className="relative min-h-[340px] overflow-hidden bg-black">
@@ -78,17 +80,21 @@ export function HotelGallery({
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10" />
                 </div>
 
-                <div className="flex flex-col border-t border-white/10 bg-[linear-gradient(180deg,rgba(11,11,14,0.96),rgba(11,11,14,0.88))] lg:border-l lg:border-t-0">
-                  <div className="flex items-start justify-between gap-4 px-5 pb-5 pt-5">
-                    <div>
-                      <div className="text-xs font-semibold uppercase tracking-[0.28em] text-white/35">Selection Sousse</div>
-                      <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">{open.title}</h3>
+                <div className="flex min-h-0 flex-col border-t border-white/10 bg-[linear-gradient(180deg,rgba(11,11,14,0.96),rgba(11,11,14,0.88))] 2xl:border-l 2xl:border-t-0">
+                  <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 px-5 pb-5 pt-5">
+                    <div className="min-w-0">
+                      <div className="text-xs font-semibold uppercase tracking-[0.28em] text-white/35">
+                        Selection {collectionLabel ?? open.location}
+                      </div>
+                      <h3 className="mt-3 truncate text-2xl font-semibold leading-tight tracking-tight text-white">
+                        {open.title}
+                      </h3>
                       <p className="mt-2 text-sm leading-6 text-white/60">{open.location}</p>
                     </div>
                     <button
                       type="button"
                       onClick={() => setOpenIndex(null)}
-                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-lg text-white/85 transition hover:bg-white/[0.08]"
+                      className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-lg text-white/85 transition hover:bg-white/[0.08]"
                     >
                       x
                     </button>
@@ -100,37 +106,40 @@ export function HotelGallery({
                     </div>
                   </div>
 
-                  <div className="mt-5 grid gap-3 px-5">
-                    {items.map((item, idx) => {
-                      const isActive = idx === openIndex;
+                  <div className="mt-5 min-h-0 flex-1 overflow-y-auto px-5 pb-5">
+                    <div className="grid gap-3">
+                      {items.map((item, idx) => {
+                        const isActive = idx === openIndex;
 
-                      return (
-                        <button
-                          key={`${item.title}-${idx}-thumb`}
-                          type="button"
-                          onClick={() => setOpenIndex(idx)}
-                          className={`flex items-center gap-3 rounded-2xl border px-3 py-3 text-left transition ${
-                            isActive
-                              ? "border-white/18 bg-white/[0.08]"
-                              : "border-white/8 bg-white/[0.03] hover:border-white/14 hover:bg-white/[0.05]"
-                          }`}
-                        >
-                          <div className="relative h-14 w-20 overflow-hidden rounded-xl">
-                            <Image
-                              src={item.src}
-                              alt={item.title}
-                              fill
-                              sizes="80px"
-                              className="object-cover"
-                            />
-                          </div>
-                          <div className="min-w-0">
-                            <div className="truncate text-sm font-semibold text-white">{item.title}</div>
-                            <div className="mt-1 truncate text-xs text-white/50">{item.location}</div>
-                          </div>
-                        </button>
-                      );
-                    })}
+                        return (
+                          <button
+                            key={`${item.title}-${idx}-thumb`}
+                            type="button"
+                            onClick={() => setOpenIndex(idx)}
+                            className={`flex w-full min-w-0 items-center gap-3 overflow-hidden rounded-2xl border px-3 py-3 text-left transition ${
+                              isActive
+                                ? "border-white/18 bg-white/[0.08]"
+                                : "border-white/8 bg-white/[0.03] hover:border-white/14 hover:bg-white/[0.05]"
+                            }`}
+                          >
+                            <div className="relative h-11 w-14 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-black/30">
+                              <Image
+                                src={item.src}
+                                alt={item.title}
+                                fill
+                                sizes="56px"
+                                className="object-cover"
+                              />
+                            </div>
+
+                            <div className="min-w-0 flex-1 overflow-hidden">
+                              <div className="truncate text-sm font-semibold text-white/92">{item.title}</div>
+                              <div className="mt-1 truncate text-xs text-white/55">{item.location}</div>
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
 
                   <div className="mt-auto flex items-center justify-between gap-3 border-t border-white/10 px-5 py-5">
@@ -163,13 +172,13 @@ export function HotelGallery({
   return (
     <>
       <div className={className}>
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((it, idx) => (
             <button
               key={it.title + idx}
               type="button"
               onClick={() => setOpenIndex(idx)}
-              className="group relative overflow-hidden rounded-[1.9rem] border border-white/10 bg-black/25 text-left shadow-[0_18px_55px_rgba(0,0,0,0.28)] transition duration-500 hover:-translate-y-1.5 hover:border-white/18"
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-black/20 text-left"
             >
               <div className="relative aspect-[16/9] w-full overflow-hidden">
                 <Image
@@ -180,17 +189,12 @@ export function HotelGallery({
                   className="object-cover opacity-90 transition duration-700 group-hover:scale-105 group-hover:opacity-100"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
-              <div className="absolute left-4 right-4 top-4 flex items-center justify-between gap-3">
-                <span className="rounded-full border border-white/15 bg-black/45 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-white/75">
-                  {it.location}
-                </span>
-                <span className="rounded-full border border-white/15 bg-black/45 px-3 py-1 text-[11px] text-white/75 transition group-hover:bg-white/10">
-                  Ouvrir
-                </span>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-5">
-                <div className="text-base font-semibold text-white md:text-lg">{it.title}</div>
+                <div className="min-w-0">
+                  <div className="truncate text-sm font-semibold text-white">{it.title}</div>
+                  <div className="mt-1 truncate text-xs text-white/70">{it.location}</div>
+                </div>
               </div>
             </button>
           ))}
