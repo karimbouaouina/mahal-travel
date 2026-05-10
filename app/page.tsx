@@ -390,7 +390,7 @@ export default function Home() {
                         y={y - 1.4}
                         fontSize={3.2}
                         fill="rgba(255,255,255,0.92)"
-                        fontFamily="var(--font-geist-sans), system-ui"
+                        fontFamily="system-ui"
                       >
                         Tunisie
                       </text>
