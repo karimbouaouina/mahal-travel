@@ -83,9 +83,9 @@ const structuredData = {
       image: "https://opalenoiretravel.vercel.app/images/ONWINDOW.png",
       telephone: "+21698503197",
       email: "contact@opalenoire.tn",
-      areaServed: ["Tunisie", "Sousse", "Hammamet", "Monastir"],
+      areaServed: ["Tunisie", "Sousse", "Monastir", "Hammamet", "Djerba"],
       description:
-        "Reservation d'hotels, groupes et seminaires en Tunisie avec un focus fort sur Sousse.",
+        "Reservation d'hotels, groupes et seminaires en Tunisie avec un accompagnement clair sur plusieurs destinations.",
     },
     {
       "@type": "WebSite",
@@ -95,28 +95,6 @@ const structuredData = {
     },
   ],
 };
-
-const hotelLines = [
-  "Hotels premium et bords de mer",
-  "Bloc chambres pour groupes",
-  "Formats seminaires avec salles",
-  "Reponse rapide et options triees",
-];
-
-const serviceTiles = [
-  {
-    title: "Reservations hotels",
-    text: "Disponibilites, categories, pensions et arbitrage budget, dans un format clair et exploitable.",
-  },
-  {
-    title: "Seminaires",
-    text: "Hebergement, salles, pauses et rythme du sejour, organises dans une seule trajectoire.",
-  },
-  {
-    title: "Groupes",
-    text: "Bloc chambres, coordination des besoins et suivi jusqu'a la confirmation finale.",
-  },
-];
 
 const destinationCards = [
   {
@@ -133,6 +111,11 @@ const destinationCards = [
     title: "Hammamet",
     subtitle: "Resorts et weekends",
     text: "Une bonne destination quand il faut garder une touche resort et une logistique simple.",
+  },
+  {
+    title: "Djerba",
+    subtitle: "Ile, resort et sejours balneaires",
+    text: "Une destination utile pour les demandes soleil, detente, all inclusive et formats loisirs plus immersifs.",
   },
   {
     title: "Seminaires",
@@ -235,9 +218,6 @@ export default function Home() {
             <a className="transition hover:text-white" href="#hotels">
               Hotels
             </a>
-            <a className="transition hover:text-white" href="#services">
-              Services
-            </a>
             <a className="transition hover:text-white" href="#process">
               Comment ca marche
             </a>
@@ -277,9 +257,9 @@ export default function Home() {
                 </h1>
 
                 <p className="reveal mt-5 max-w-2xl text-base leading-7 text-white/68 md:text-lg">
-                  Nous gerons les reservations hotels, les besoins groupes et les formats seminaires avec un focus fort
-                  sur Sousse. Tu partages les dates, le budget et le cadre du besoin, nous revenons avec des options
-                  claires, activables et bien presentees.
+                  Nous gerons les reservations hotels, les besoins groupes et les formats seminaires sur plusieurs
+                  destinations en Tunisie. Tu partages les dates, le budget et le cadre du besoin, nous revenons avec
+                  des options claires, activables et bien presentees.
                 </p>
 
                 <div className="reveal mt-8 flex flex-col gap-3 sm:flex-row">
@@ -297,21 +277,6 @@ export default function Home() {
                   </a>
                 </div>
 
-                <div className="reveal mt-10 grid gap-4 sm:grid-cols-3">
-                  {[
-                    { title: "Disponibilites", text: "Selon la periode, le standing et le budget" },
-                    { title: "Seminaires", text: "Salle, hebergement, pauses et rythme du sejour" },
-                    { title: "Suivi", text: "Jusqu'a la confirmation et aux derniers details" },
-                  ].map((item) => (
-                    <div
-                      key={item.title}
-                      className="hover-panel rounded-[1.8rem] border border-white/10 bg-white/[0.04] p-4 shadow-[0_18px_45px_rgba(0,0,0,0.18)]"
-                    >
-                      <div className="text-sm font-semibold text-white">{item.title}</div>
-                      <div className="mt-1 text-xs leading-6 text-white/58">{item.text}</div>
-                    </div>
-                  ))}
-                </div>
               </div>
 
               <div className="lg:col-span-5">
@@ -323,21 +288,13 @@ export default function Home() {
                   <div className="relative">
                     <div className="text-sm font-semibold text-white">Demande rapide</div>
                     <div className="mt-1 text-xs text-white/52">Hotels, groupes et seminaires en Tunisie</div>
-
-                    <div className="mt-6 grid gap-3">
-                      {serviceTiles.map((item) => (
-                        <div
-                          key={item.title}
-                          className="rounded-[1.5rem] border border-white/10 bg-black/24 p-4 transition duration-500 hover:-translate-y-1 hover:border-white/16 hover:bg-white/[0.05]"
-                        >
-                          <div className="text-sm font-semibold text-white">{item.title}</div>
-                          <div className="mt-2 text-xs leading-6 text-white/56">{item.text}</div>
-                        </div>
-                      ))}
-                    </div>
+                    <p className="mt-6 text-sm leading-7 text-white/64">
+                      Un seul message suffit pour cadrer le besoin, la destination, le niveau de standing et le format
+                      du sejour ou du seminaire.
+                    </p>
 
                     <a
-                      className="mt-6 inline-flex w-full items-center justify-center rounded-[1.4rem] bg-green-500 px-5 py-3 text-sm font-semibold text-black transition hover:scale-[1.01] hover:bg-green-400"
+                      className="mt-8 inline-flex w-full items-center justify-center rounded-[1.4rem] bg-green-500 px-5 py-3 text-sm font-semibold text-black transition hover:scale-[1.01] hover:bg-green-400"
                       href={whatsappUrl}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -355,7 +312,7 @@ export default function Home() {
           <div className="reveal mx-auto max-w-3xl text-center">
             <div className="text-xs font-semibold uppercase tracking-[0.28em] text-white/42">Hotels et lieux</div>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
-              Une selection concrete pour Sousse, les groupes et les seminaires.
+              Des destinations utiles pour les sejours, les groupes et les seminaires en Tunisie.
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/62">
               Les visuels ci-dessous utilisent les vraies photos deja presentes dans le projet, pour garder la page
@@ -370,7 +327,7 @@ export default function Home() {
                   <div className="text-sm font-semibold text-white">Carte</div>
                   <div className="mt-1 text-xs text-white/52">Focus Tunisie</div>
                 </div>
-                <div className="text-xs text-white/42">Sousse • Monastir • Hammamet</div>
+                <div className="text-xs text-white/42">Sousse • Monastir • Hammamet • Djerba</div>
               </div>
 
               <div className="mt-6 aspect-[2/1] w-full">
@@ -425,70 +382,6 @@ export default function Home() {
             </div>
 
             <HotelGallery className="mt-6" items={featuredHotels} trailingLabel="Et bien plus encore." />
-          </div>
-        </section>
-
-        <section id="services" className="container-x py-16 md:py-24">
-          <div className="reveal mx-auto max-w-3xl text-center">
-            <div className="text-xs font-semibold uppercase tracking-[0.28em] text-white/42">Services</div>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
-              Une organisation plus simple du premier message a la confirmation.
-            </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/62">
-              La page avance maintenant avec un langage plus direct, des blocs plus nets et des mouvements qui servent
-              vraiment la lecture.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-4 lg:grid-cols-12">
-            <div className="reveal lg:col-span-7">
-              <div className="service-spotlight card ring-glow h-full rounded-[2.2rem] p-7 md:p-9">
-                <div className="text-xs font-semibold uppercase tracking-[0.24em] text-white/38">Opale Noire</div>
-                <h3 className="mt-5 max-w-2xl text-3xl font-semibold leading-[1.14] tracking-tight text-white">
-                  On filtre, on structure et on te fait gagner du temps.
-                </h3>
-                <p className="mt-4 max-w-xl text-sm leading-7 text-white/66">
-                  Au lieu d&apos;une liste de pistes opaques, tu recois un ensemble propre a comparer, avec ce qu&apos;il faut
-                  pour decider vite et bien.
-                </p>
-
-                <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                  {hotelLines.map((item) => (
-                    <div
-                      key={item}
-                      className="hook-card rounded-[1.45rem] border border-white/10 bg-black/18 p-4 text-sm font-semibold text-white"
-                    >
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="reveal grid gap-4 lg:col-span-5">
-              {[
-                {
-                  title: "Demande claire",
-                  text: "Dates, ville, nombre de personnes, budget et niveau de standing attendu.",
-                },
-                {
-                  title: "Plusieurs options",
-                  text: "Des choix utiles, bien presents, avec le bon niveau de detail pour arbitrer.",
-                },
-                {
-                  title: "Coordination finale",
-                  text: "Confirmation, derniers ajustements et informations pratiques avant le sejour.",
-                },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  className="hover-panel rounded-[1.9rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_18px_45px_rgba(0,0,0,0.18)]"
-                >
-                  <div className="text-lg font-semibold tracking-tight text-white">{item.title}</div>
-                  <div className="mt-3 text-sm leading-6 text-white/60">{item.text}</div>
-                </div>
-              ))}
-            </div>
           </div>
         </section>
 
