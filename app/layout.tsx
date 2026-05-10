@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-const siteUrl = "https://opalenoire.tn";
+const siteUrl = "https://opale-noire-travel.vercel.app";
 
 export const viewport: Viewport = {
   themeColor: "#07070a",

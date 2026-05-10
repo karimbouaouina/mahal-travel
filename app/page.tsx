@@ -78,9 +78,9 @@ const structuredData = {
     {
       "@type": "TravelAgency",
       name: "Opale Noire",
-      url: "https://opalenoire.tn",
-      logo: "https://opalenoire.tn/images/whiteOutlineLogoWithoutText.png",
-      image: "https://opalenoire.tn/images/whiteOutlineLogoWithoutText.png",
+      url: "https://opale-noire-travel.vercel.app",
+      logo: "https://opale-noire-travel.vercel.app/images/whiteOutlineLogoWithoutText.png",
+      image: "https://opale-noire-travel.vercel.app/images/whiteOutlineLogoWithoutText.png",
       telephone: "+21698503197",
       email: "contact@opalenoire.tn",
       areaServed: ["Tunisie", "Sousse", "Hammamet", "Monastir"],
@@ -90,7 +90,7 @@ const structuredData = {
     {
       "@type": "WebSite",
       name: "Opale Noire",
-      url: "https://opalenoire.tn",
+      url: "https://opale-noire-travel.vercel.app",
       inLanguage: "fr",
     },
   ],
