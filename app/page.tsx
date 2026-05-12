@@ -11,9 +11,10 @@ import { Steps } from "@/components/steps";
 import { TestimonialsCarousel } from "@/components/testimonials-carousel";
 
 const hotelImagePool = {
-  mouradi: "/images/hotels/ChaineMouradi1200x675.png",
+  tourkhalef: "/images/hotels/TourKhalef1200x675.jpg",
   iberostar: "/images/hotels/iberostar1200x675.jpg",
   concorde: "/images/hotels/concorde1200x675.jpg",
+  riadhPalms: "/images/hotels/RiadhPalms1200x675.png",
   marhaba: "/images/hotels/ChaineMarhaba1200x675.png",
   bellevue: "/images/hotels/BelleVue1200x675.png",
 } as const;
@@ -45,7 +46,7 @@ const galleryCollections: GalleryCollection[] = [
       },
       {
         src: hotelImagePool.marhaba,
-        title: "Chaine Marhaba",
+        title: "Marhaba Palace",
         location: "Sousse",
       },
       {
@@ -54,13 +55,13 @@ const galleryCollections: GalleryCollection[] = [
         location: "Sousse",
       },
       {
-        src: hotelImagePool.mouradi,
-        title: "Chaine Mouradi",
+        src: hotelImagePool.tourkhalef,
+        title: "JAZ Tour Khalef",
         location: "Sousse",
       },
       {
-        src: hotelImagePool.marhaba,
-        title: "Tej Marhaba",
+        src: hotelImagePool.riadhPalms,
+        title: "Riadh Palms",
         location: "Sousse",
       },
     ],
@@ -70,38 +71,38 @@ const galleryCollections: GalleryCollection[] = [
     title: "Monastir",
     heading: "Exemples d'hotels a Monastir",
     description: "Des apercus de reference pour visualiser le type d'options que nous pouvons cadrer sur Monastir.",
-      items: [
-        {
-          src: "/images/hotels/royalThalassaMonastir1200x675.jpg",
-          title: "Royal Thalassa Monastir",
-          location: "Monastir",
-        },
-        {
-          src: "/images/hotels/iberostarKuriatPalace1200x675.png",
-          title: "Iberostar Selection Kuriat Palace",
-          location: "Monastir",
-        },
-        {
-          src: "/images/hotels/hotelTropicanaMonastir1200x675.jpg",
-          title: "Hotel Tropicana Monastir",
-          location: "Monastir",
-        },
-        {
-          src: "/images/hotels/skanesSerail1200x675.png",
-          title: "Skanes Serail",
-          location: "Monastir",
-        },
-        {
-          src: "/images/hotels/AmirPalace1200x675.jpg",
-          title: "Amir Palace",
-          location: "Monastir",
-        },
-        {
-          src: "/images/hotels/hiltonSkanesMonastir1200x675.jpg",
-          title: "Hilton Skanes Monastir Beach Resort",
-          location: "Monastir",
-        },
-      ],
+    items: [
+      {
+        src: "/images/hotels/royalThalassaMonastir1200x675.jpg",
+        title: "Royal Thalassa Monastir",
+        location: "Monastir",
+      },
+      {
+        src: "/images/hotels/iberostarKuriatPalace1200x675.png",
+        title: "Iberostar Selection Kuriat Palace",
+        location: "Monastir",
+      },
+      {
+        src: "/images/hotels/hotelTropicanaMonastir1200x675.jpg",
+        title: "Hotel Tropicana Monastir",
+        location: "Monastir",
+      },
+      {
+        src: "/images/hotels/skanesSerail1200x675.png",
+        title: "Skanes Serail",
+        location: "Monastir",
+      },
+      {
+        src: "/images/hotels/AmirPalace1200x675.jpg",
+        title: "Amir Palace",
+        location: "Monastir",
+      },
+      {
+        src: "/images/hotels/hiltonSkanesMonastir1200x675.jpg",
+        title: "Hilton Skanes Monastir Beach Resort",
+        location: "Monastir",
+      },
+    ],
   },
   {
     key: "hammamet",
@@ -716,9 +717,8 @@ export default function Home() {
         type="button"
         aria-label="Revenir en haut"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className={`fixed bottom-5 right-5 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/14 bg-black/60 text-white shadow-[0_18px_45px_rgba(0,0,0,0.32)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-white/22 hover:bg-black/75 md:bottom-7 md:right-7 ${
-          showBackToTop ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
-        }`}
+        className={`fixed bottom-5 right-5 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/14 bg-black/60 text-white shadow-[0_18px_45px_rgba(0,0,0,0.32)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-white/22 hover:bg-black/75 md:bottom-7 md:right-7 ${showBackToTop ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+          }`}
       >
         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
           <path d="m6 14 6-6 6 6" strokeLinecap="round" strokeLinejoin="round" />
