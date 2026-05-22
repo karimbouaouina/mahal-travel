@@ -11,7 +11,7 @@ import { Steps } from "@/components/steps";
 import { TestimonialsCarousel } from "@/components/testimonials-carousel";
 
 const hotelImagePool = {
-  tourkhalef: "/images/hotels/TourKhalef1200x675.jpg",
+  tourkhalef: "/images/hotels/tourKhalef1200x675.jpg",
   iberostar: "/images/hotels/Iberostar1200x675.png",
   concorde: "/images/hotels/concorde1200x675.jpg",
   riadhPalms: "/images/hotels/RiadhPalms1200x675.png",
