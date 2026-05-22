@@ -81,7 +81,7 @@ export const metadata: Metadata = {
       "Selection d'hotels, reservations groupes et accompagnement seminaire en Tunisie, avec une approche d'exception.",
     images: [
       {
-        url: "/fullLogoMahalTravel-white-transparent.png",
+        url: "/images/website-thumbnail.jpeg",
         width: 1200,
         height: 630,
         alt: "Mahal Travel Tunisie",
@@ -93,7 +93,7 @@ export const metadata: Metadata = {
     title: "Mahal Travel | Reservation d'hotels et seminaires en Tunisie",
     description:
       "Reservations d'hotels, groupes et seminaires en Tunisie avec une approche d'exception.",
-    images: ["/fullLogoMahalTravel-white-transparent.png"],
+    images: ["/images/website-thumbnail.jpeg"],
   },
 };
 

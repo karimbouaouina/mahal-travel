@@ -258,7 +258,7 @@ const structuredData = {
       name: "Mahal Travel",
       url: "https://mahaltravel.vercel.app",
       logo: "https://mahaltravel.vercel.app/logo-mahalTravel-white-transparent.png",
-      image: "https://mahaltravel.vercel.app/fullLogoMahalTravel-white-transparent.png",
+      image: "https://mahaltravel.vercel.app/images/website-thumbnail.jpeg",
       telephone: "+21698503197",
       email: "mahaltravel@gmail.com",
       areaServed: ["Tunisie", "Sousse", "Monastir", "Hammamet", "Djerba", "Tabarka"],
