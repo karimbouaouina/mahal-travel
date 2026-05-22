@@ -256,9 +256,9 @@ const structuredData = {
     {
       "@type": "TravelAgency",
       name: "Mahal Travel",
-      url: "https://opalenoiretravel.vercel.app",
-      logo: "https://opalenoiretravel.vercel.app/logo-mahalTravel-white-transparent.png",
-      image: "https://opalenoiretravel.vercel.app/fullLogoMahalTravel-white-transparent.png",
+      url: "https://mahaltravel.vercel.app",
+      logo: "https://mahaltravel.vercel.app/logo-mahalTravel-white-transparent.png",
+      image: "https://mahaltravel.vercel.app/fullLogoMahalTravel-white-transparent.png",
       telephone: "+21698503197",
       email: "mahaltravel@gmail.com",
       areaServed: ["Tunisie", "Sousse", "Monastir", "Hammamet", "Djerba", "Tabarka"],
@@ -268,7 +268,7 @@ const structuredData = {
     {
       "@type": "WebSite",
       name: "Mahal Travel",
-      url: "https://opalenoiretravel.vercel.app",
+      url: "https://mahaltravel.vercel.app",
       inLanguage: "fr",
     },
   ],

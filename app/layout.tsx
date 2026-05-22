@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Fraunces, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 
-const siteUrl = "https://opalenoiretravel.vercel.app";
+const siteUrl = "https://mahaltravel.vercel.app";
 
 const fraunces = Fraunces({
   subsets: ["latin"],

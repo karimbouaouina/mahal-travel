@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://opalenoiretravel.vercel.app/sitemap.xml
+Sitemap: https://mahaltravel.vercel.app/sitemap.xml
