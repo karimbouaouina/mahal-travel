@@ -63,12 +63,13 @@ export function HotelGallery({
             aria-label={`Apercu de ${open.title}`}
             onMouseDown={() => setOpenIndex(null)}
           >
-            <div className="flex h-full w-full items-center justify-center p-4 md:p-8">
+            <div className="flex h-full w-full items-center justify-center p-2 sm:p-4 md:p-8">
               <div
-                className="relative grid h-full max-h-[92vh] w-full max-w-7xl overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 shadow-[0_32px_120px_rgba(0,0,0,0.55)] 2xl:grid-cols-[minmax(0,1fr)_380px]"
+                className="relative flex flex-col h-[90vh] md:h-full max-h-[92vh] w-full max-w-7xl overflow-y-auto rounded-[2rem] border shadow-[0_32px_120px_rgba(0,0,0,0.55)] 2xl:grid 2xl:grid-cols-[minmax(0,1fr)_380px] 2xl:overflow-hidden"
+                style={{ borderColor: 'oklch(0.72 0.11 75 / 0.25)', background: 'oklch(0.11 0.015 260 / 0.95)' }}
                 onMouseDown={(e) => e.stopPropagation()}
               >
-                <div className="relative min-h-[340px] overflow-hidden bg-black">
+                <div className="relative h-[35vh] sm:h-[45vh] min-h-[220px] 2xl:h-full 2xl:min-h-0 shrink-0 overflow-hidden bg-black">
                   <Image
                     src={open.src}
                     alt={open.title}
@@ -80,7 +81,7 @@ export function HotelGallery({
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10" />
                 </div>
 
-                <div className="flex min-h-0 flex-col border-t border-white/10 bg-[linear-gradient(180deg,rgba(11,11,14,0.96),rgba(11,11,14,0.88))] 2xl:border-l 2xl:border-t-0">
+                <div className="flex flex-col border-t bg-[linear-gradient(180deg,oklch(0.14 0.012 260/0.98),oklch(0.11 0.015 260/0.94))] 2xl:border-l 2xl:border-t-0 2xl:min-h-0 2xl:flex-1" style={{ borderColor: 'oklch(0.72 0.11 75 / 0.25)' }}>
                   <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 px-5 pb-5 pt-5">
                     <div className="min-w-0">
                       <div className="text-xs font-semibold uppercase tracking-[0.28em] text-white/35">
@@ -94,20 +95,21 @@ export function HotelGallery({
                     <button
                       type="button"
                       onClick={() => setOpenIndex(null)}
-                      className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-lg text-white/85 transition hover:bg-white/[0.08]"
+                      className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border bg-white/[0.04] text-lg text-white/85 transition hover:bg-white/[0.08]"
+                      style={{ borderColor: 'oklch(0.72 0.11 75 / 0.3)' }}
                     >
                       x
                     </button>
                   </div>
 
                   <div className="px-5">
-                    <div className="rounded-[1.4rem] border border-white/10 bg-white/[0.03] p-4 text-sm leading-6 text-white/70">
-                      Galerie photo plein ecran avec navigation clavier et vue detaillee de chaque hotel.
+                    <div className="rounded-[1.4rem] border bg-white/[0.03] p-4 text-sm leading-6 text-white/70" style={{ borderColor: 'oklch(0.72 0.11 75 / 0.15)' }}>
+                      Galerie photo avec navigation clavier et vue detaillee de chaque hotel.
                     </div>
                   </div>
 
-                  <div className="mt-5 min-h-0 flex-1 overflow-y-auto px-5 pb-5">
-                    <div className="grid gap-3">
+                  <div className="mt-5 min-h-0 px-5 pb-5 2xl:flex-1 2xl:overflow-y-auto">
+                    <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-none 2xl:grid 2xl:grid-cols-1 2xl:gap-3 2xl:overflow-x-visible 2xl:pb-0">
                       {items.map((item, idx) => {
                         const isActive = idx === openIndex;
 
@@ -116,13 +118,14 @@ export function HotelGallery({
                             key={`${item.title}-${idx}-thumb`}
                             type="button"
                             onClick={() => setOpenIndex(idx)}
-                            className={`flex w-full min-w-0 items-center gap-3 overflow-hidden rounded-2xl border px-3 py-3 text-left transition ${
+                            className={`flex w-[240px] 2xl:w-full shrink-0 min-w-0 items-center gap-3 overflow-hidden rounded-2xl border px-3 py-3 text-left transition ${
                               isActive
-                                ? "border-white/18 bg-white/[0.08]"
-                                : "border-white/8 bg-white/[0.03] hover:border-white/14 hover:bg-white/[0.05]"
+                                ? "bg-white/[0.08]"
+                                : "bg-white/[0.03] hover:border-white/14 hover:bg-white/[0.05]"
                             }`}
+                            style={{ borderColor: isActive ? 'oklch(0.72 0.11 75 / 0.6)' : 'oklch(0.72 0.11 75 / 0.15)' }}
                           >
-                            <div className="relative h-11 w-14 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-black/30">
+                            <div className="relative h-11 w-14 shrink-0 overflow-hidden rounded-xl border bg-black/30" style={{ borderColor: 'oklch(0.72 0.11 75 / 0.2)' }}>
                               <Image
                                 src={item.src}
                                 alt={item.title}
@@ -142,11 +145,12 @@ export function HotelGallery({
                     </div>
                   </div>
 
-                  <div className="mt-auto flex items-center justify-between gap-3 border-t border-white/10 px-5 py-5">
+                  <div className="mt-auto flex items-center justify-between gap-3 border-t px-5 py-5" style={{ borderColor: 'oklch(0.72 0.11 75 / 0.2)' }}>
                     <button
                       type="button"
                       onClick={() => go(-1)}
-                      className="inline-flex h-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] px-5 text-sm font-semibold text-white/90 transition hover:bg-white/[0.08]"
+                      className="inline-flex h-11 items-center justify-center rounded-full border bg-white/[0.04] px-5 text-sm font-semibold text-white/90 transition hover:bg-white/[0.08]"
+                      style={{ borderColor: 'oklch(0.72 0.11 75 / 0.25)' }}
                     >
                       Precedent
                     </button>
@@ -156,7 +160,8 @@ export function HotelGallery({
                     <button
                       type="button"
                       onClick={() => go(1)}
-                      className="inline-flex h-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] px-5 text-sm font-semibold text-white/90 transition hover:bg-white/[0.08]"
+                      className="inline-flex h-11 items-center justify-center rounded-full border bg-white/[0.04] px-5 text-sm font-semibold text-white/90 transition hover:bg-white/[0.08]"
+                      style={{ borderColor: 'oklch(0.72 0.11 75 / 0.25)' }}
                     >
                       Suivant
                     </button>

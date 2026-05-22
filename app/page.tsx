@@ -12,7 +12,7 @@ import { TestimonialsCarousel } from "@/components/testimonials-carousel";
 
 const hotelImagePool = {
   tourkhalef: "/images/hotels/TourKhalef1200x675.jpg",
-  iberostar: "/images/hotels/iberostar1200x675.jpg",
+  iberostar: "/images/hotels/Iberostar1200x675.png",
   concorde: "/images/hotels/concorde1200x675.jpg",
   riadhPalms: "/images/hotels/RiadhPalms1200x675.png",
   marhaba: "/images/hotels/ChaineMarhaba1200x675.png",
@@ -36,7 +36,7 @@ const galleryCollections: GalleryCollection[] = [
     items: [
       {
         src: hotelImagePool.iberostar,
-        title: "Iberostar Diar El Andalous",
+        title: "Chaine Iberostar",
         location: "Sousse",
       },
       {
@@ -255,19 +255,19 @@ const structuredData = {
   "@graph": [
     {
       "@type": "TravelAgency",
-      name: "Opale Noire",
+      name: "Mahal Travel",
       url: "https://opalenoiretravel.vercel.app",
-      logo: "https://opalenoiretravel.vercel.app/images/whiteOutlineLogoWithoutText.png",
-      image: "https://opalenoiretravel.vercel.app/images/ONWINDOW.png",
+      logo: "https://opalenoiretravel.vercel.app/logo-mahalTravel-white-transparent.png",
+      image: "https://opalenoiretravel.vercel.app/fullLogoMahalTravel-white-transparent.png",
       telephone: "+21698503197",
-      email: "contact@opalenoire.tn",
+      email: "mahaltravel@gmail.com",
       areaServed: ["Tunisie", "Sousse", "Monastir", "Hammamet", "Djerba", "Tabarka"],
       description:
-        "Reservation d'hotels, groupes et seminaires en Tunisie avec un accompagnement clair sur plusieurs destinations.",
+        "Reservation d'hotels, groupes et seminaires en Tunisie avec un accompagnement d'exception.",
     },
     {
       "@type": "WebSite",
-      name: "Opale Noire",
+      name: "Mahal Travel",
       url: "https://opalenoiretravel.vercel.app",
       inLanguage: "fr",
     },
@@ -316,7 +316,7 @@ export default function Home() {
   const whatsappUrl =
     "https://wa.me/21698503197?text=" +
     encodeURIComponent(
-      "Bonjour Opale Noire, je souhaite reserver un hotel ou organiser un seminaire. Voici mon besoin :"
+      "Bonjour Mahal Travel, je souhaite reserver un hotel ou organiser un seminaire. Voici mon besoin :"
     );
 
   useEffect(() => {
@@ -380,47 +380,48 @@ export default function Home() {
         <div className={`splash${splashLeaving ? " is-leaving" : ""}`} aria-hidden="true">
           <Image
             className="splash__logo"
-            src="/images/WhiteOutlineTransparentBackground.png"
-            alt="Opale Noire"
-            width={560}
-            height={560}
+            src="/fullLogoMahalTravel-white-transparent.png"
+            alt="Mahal Travel"
+            width={480}
+            height={480}
             priority
           />
         </div>
       ) : null}
 
-      <header className="sticky top-0 z-40 border-b border-white/10 bg-black/35 backdrop-blur-xl">
-        <div className="container-x flex h-[68px] items-center justify-between gap-4 py-2">
+      <header className="sticky top-0 z-40 border-b bg-background/60 backdrop-blur-xl" style={{ borderColor: 'oklch(0.72 0.11 75 / 0.12)' }}>
+        <div className="container-x flex h-[76px] items-center justify-between gap-4 py-2">
           <a href="#" className="flex items-center gap-3">
-            <span className="inline-flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl">
+            <span className="inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl">
               <Image
-                src="/images/whiteOutlineLogoWithoutText.png"
-                alt="Opale Noire"
-                width={44}
-                height={44}
+                src="/logo-mahalTravel-white-transparent.png"
+                alt="Mahal Travel"
+                width={40}
+                height={40}
                 priority
               />
             </span>
-            <span className="text-sm font-semibold tracking-wide text-white">Opale Noire</span>
+            <span className="font-serif text-lg font-bold tracking-wide text-white">Mahal Travel</span>
           </a>
 
-          <nav className="hidden items-center gap-7 text-sm text-white/76 md:flex">
-            <a className="transition hover:text-white" href="#hotels">
+          <nav className="hidden items-center gap-8 text-sm font-medium text-white/70 md:flex">
+            <a className="transition hover:text-gold" href="#hotels">
               Hotels
             </a>
-            <a className="transition hover:text-white" href="#process">
+            <a className="transition hover:text-gold" href="#process">
               Comment ca marche
             </a>
-            <a className="transition hover:text-white" href="#partners">
+            <a className="transition hover:text-gold" href="#partners">
               Partenaires
             </a>
-            <a className="transition hover:text-white" href="#contact">
+            <a className="transition hover:text-gold" href="#contact">
               Contact
             </a>
           </nav>
 
           <a
-            className="inline-flex h-11 items-center justify-center rounded-full bg-green-500 px-5 text-sm font-semibold text-black transition hover:scale-[1.02] hover:bg-green-400"
+            className="inline-flex h-11 items-center justify-center rounded-full px-5 text-sm font-bold text-black transition hover:scale-[1.02] active:scale-[0.98]"
+            style={{ backgroundColor: 'var(--accent)' }}
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -436,17 +437,20 @@ export default function Home() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
 
-        <section className="grain">
-          <div className="container-x py-18 md:py-28">
+        <section className="grain relative overflow-hidden py-16 md:py-24">
+          <div className="pointer-events-none absolute -left-48 -top-48 h-96 w-96 rounded-full blur-3xl opacity-40" style={{ background: 'oklch(0.18 0.03 260)' }} />
+          <div className="container-x">
             <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
               <div className="lg:col-span-7">
-                <div className="reveal attention-pill">Reservations hotels et seminaires en Tunisie</div>
+                <div className="reveal inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em]" style={{ borderColor: 'oklch(0.72 0.11 75 / 0.3)', backgroundColor: 'oklch(0.72 0.11 75 / 0.05)', color: 'var(--gold-bright)' }}>
+                  Reservations hotels et seminaires en Tunisie
+                </div>
 
-                <h1 className="reveal mt-6 max-w-3xl text-4xl font-semibold leading-[0.98] tracking-tight md:text-6xl">
-                  Ton hotel ou ton seminaire en Tunisie, organise avec une approche plus nette.
+                <h1 className="reveal font-serif mt-6 max-w-3xl text-4xl font-bold leading-[1.08] tracking-tight text-white md:text-6xl">
+                  Ton hotel ou ton seminaire en Tunisie, organise avec une approche <span className="gold-shimmer bg-clip-text text-transparent font-bold">d'exception</span>.
                 </h1>
 
-                <p className="reveal mt-5 max-w-2xl text-base leading-7 text-white/68 md:text-lg">
+                <p className="reveal mt-6 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
                   Nous gerons les reservations hotels, les besoins groupes et les formats seminaires sur plusieurs
                   destinations en Tunisie. Tu partages les dates, le budget et le cadre du besoin, nous revenons avec
                   des options claires, activables et bien presentees.
@@ -454,13 +458,15 @@ export default function Home() {
 
                 <div className="reveal mt-8 flex flex-col gap-3 sm:flex-row">
                   <a
-                    className="inline-flex h-12 items-center justify-center rounded-full bg-green-500 px-6 text-sm font-semibold text-black transition hover:scale-[1.01] hover:bg-green-400"
+                    className="inline-flex h-12 items-center justify-center rounded-full px-7 text-sm font-bold text-black transition hover:scale-[1.02] active:scale-[0.98] shadow-lg"
+                    style={{ background: 'linear-gradient(135deg, var(--gold-bright), var(--gold))', boxShadow: '0 8px 30px oklch(0.72 0.11 75 / 0.2)' }}
                     href="#contact"
                   >
                     Demander une option
                   </a>
                   <a
-                    className="inline-flex h-12 items-center justify-center rounded-full border border-white/16 bg-white/[0.03] px-6 text-sm font-semibold text-white transition hover:border-white/24 hover:bg-white/[0.06]"
+                    className="inline-flex h-12 items-center justify-center rounded-full border px-7 text-sm font-semibold text-white transition hover:bg-white/[0.04] active:scale-[0.98]"
+                    style={{ borderColor: 'var(--gold-muted)' }}
                     href="#hotels"
                   >
                     Voir la selection
@@ -477,11 +483,11 @@ export default function Home() {
 
         <section id="hotels" className="container-x py-16 md:py-24">
           <div className="reveal mx-auto max-w-3xl text-center">
-            <div className="text-xs font-semibold uppercase tracking-[0.28em] text-white/42">Hotels et lieux</div>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+            <div className="text-xs font-semibold uppercase tracking-[0.28em]" style={{ color: 'var(--gold-bright)' }}>Hotels et lieux</div>
+            <h2 className="mt-3 font-serif text-3xl font-bold tracking-tight text-white md:text-4xl">
               Des destinations utiles pour les sejours, les groupes et les seminaires en Tunisie.
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/62">
+            <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/60">
               Les visuels ci-dessous utilisent les vraies photos deja presentes dans le projet, pour garder la page
               plus credible et plus precise.
             </p>
@@ -492,9 +498,9 @@ export default function Home() {
               <div className="flex items-end justify-between gap-4">
                 <div>
                   <div className="text-sm font-semibold text-white">Carte</div>
-                  <div className="mt-1 text-xs text-white/52">Focus Tunisie</div>
+                  <div className="mt-1 text-xs text-white/50">Focus Tunisie</div>
                 </div>
-                <div className="text-xs text-white/42">Sousse • Monastir • Hammamet • Djerba • Tabarka</div>
+                <div className="text-xs text-white/40">Sousse • Monastir • Hammamet • Djerba • Tabarka</div>
               </div>
 
               <div className="mt-6 aspect-[2/1] w-full">
@@ -503,8 +509,8 @@ export default function Home() {
                   height={75}
                   mapSamples={6500}
                   dotRadius={0.23}
-                  dotColor="rgba(255,255,255,0.28)"
-                  markerColor="rgba(255,255,255,0.92)"
+                  dotColor="oklch(0.72 0.11 75 / 0.42)"
+                  markerColor="oklch(0.80 0.13 70 / 0.95)"
                   pulse
                   markers={[{ lat: 34.0, lng: 9.0, size: 0.62, pulse: true }]}
                   renderMarkerOverlay={({ x, y }) => (
@@ -513,7 +519,7 @@ export default function Home() {
                         x={x + 1.8}
                         y={y - 1.4}
                         fontSize={3.2}
-                        fill="rgba(255,255,255,0.92)"
+                        fill="oklch(0.80 0.13 70 / 0.95)"
                         fontFamily="system-ui"
                       >
                         Tunisie
@@ -529,39 +535,42 @@ export default function Home() {
                 {destinationCards.map((item) => (
                   <div
                     key={item.title}
-                    className="reveal hover-panel rounded-[1.9rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_18px_45px_rgba(0,0,0,0.18)]"
+                    className="reveal rounded-[1.9rem] border p-6 transition duration-300 hover:-translate-y-1 hover:border-gold/30 hover:bg-white/[0.02]"
+                    style={{ borderColor: 'oklch(0.72 0.11 75 / 0.12)', background: 'linear-gradient(180deg, oklch(0.14 0.012 260 / 0.6), oklch(0.11 0.015 260 / 0.4))' }}
                   >
-                    <div className="text-sm font-semibold text-white/72">{item.title}</div>
-                    <div className="mt-2 text-xl font-semibold tracking-tight text-white">{item.subtitle}</div>
-                    <div className="mt-3 text-sm leading-6 text-white/60">{item.text}</div>
+                    <div className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--gold-muted)' }}>{item.title}</div>
+                    <div className="mt-2 text-xl font-bold tracking-tight text-white">{item.subtitle}</div>
+                    <div className="mt-3 text-xs leading-5 text-white/60">{item.text}</div>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="reveal mx-auto mt-6 max-w-5xl rounded-[2rem] border border-white/10 bg-black/22 p-6 md:p-7">
+          <div className="reveal mx-auto mt-8 max-w-5xl rounded-[2rem] border p-6 md:p-8" style={{ borderColor: 'oklch(0.72 0.11 75 / 0.18)', background: 'linear-gradient(180deg, oklch(0.14 0.012 260 / 0.5), oklch(0.11 0.015 260 / 0.3))' }}>
             <div className="mx-auto max-w-3xl text-center">
               <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-6 md:gap-12">
                 <button
                   type="button"
                   onClick={() => cycleGallery(-1)}
                   aria-label="Afficher la destination precedente"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/[0.04] text-white/88 transition hover:bg-white/[0.08]"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border bg-white/[0.04] text-white/88 transition hover:bg-white/[0.08]"
+                  style={{ borderColor: 'oklch(0.72 0.11 75 / 0.25)' }}
                 >
                   <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
                     <path d="M15 6 9 12l6 6" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
                 <div className="min-w-0">
-                  <div className="text-sm font-semibold text-white">{activeGallery.heading}</div>
-                  <div className="mt-2 text-sm leading-6 text-white/58">{activeGallery.description}</div>
+                  <div className="font-serif text-lg font-bold text-gold-bright">{activeGallery.heading}</div>
+                  <div className="mt-2 text-sm leading-6 text-white/70">{activeGallery.description}</div>
                 </div>
                 <button
                   type="button"
                   onClick={() => cycleGallery(1)}
                   aria-label="Afficher la destination suivante"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/[0.04] text-white/88 transition hover:bg-white/[0.08]"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border bg-white/[0.04] text-white/88 transition hover:bg-white/[0.08]"
+                  style={{ borderColor: 'oklch(0.72 0.11 75 / 0.25)' }}
                 >
                   <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
                     <path d="m9 6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
@@ -576,11 +585,11 @@ export default function Home() {
 
         <section id="process" className="container-x py-16 md:py-24">
           <div className="reveal mx-auto max-w-3xl text-center">
-            <div className="text-xs font-semibold uppercase tracking-[0.28em] text-white/42">Comment ca marche</div>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+            <div className="text-xs font-semibold uppercase tracking-[0.28em]" style={{ color: 'var(--gold-bright)' }}>Comment ca marche</div>
+            <h2 className="mt-3 font-serif text-3xl font-bold tracking-tight text-white md:text-4xl">
               Trois etapes, un seul parcours, une lecture bien plus fluide.
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/62">
+            <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/60">
               Tout reste centre et facile a suivre, sans blocs secondaires qui cassent le rythme.
             </p>
           </div>
@@ -609,11 +618,11 @@ export default function Home() {
 
         <section id="avis" className="container-x py-16 md:py-24">
           <div className="reveal mx-auto mb-8 max-w-3xl text-center">
-            <div className="text-xs font-semibold uppercase tracking-[0.28em] text-white/42">Avis clients</div>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+            <div className="text-xs font-semibold uppercase tracking-[0.28em]" style={{ color: 'var(--gold-bright)' }}>Avis clients</div>
+            <h2 className="mt-3 font-serif text-3xl font-bold tracking-tight text-white md:text-4xl">
               Un retour clair, centre, sans rien autour qui parasite la lecture.
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/62">
+            <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/60">
               La section reste volontairement simple: un grand temoignage, bien cadre, adapte a l&apos;ecran.
             </p>
           </div>
@@ -623,11 +632,11 @@ export default function Home() {
 
         <section id="partners" className="container-x py-16 md:py-24">
           <div className="reveal mx-auto max-w-3xl text-center">
-            <div className="text-xs font-semibold uppercase tracking-[0.28em] text-white/42">Partenaires</div>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+            <div className="text-xs font-semibold uppercase tracking-[0.28em]" style={{ color: 'var(--gold-bright)' }}>Partenaires</div>
+            <h2 className="mt-3 font-serif text-3xl font-bold tracking-tight text-white md:text-4xl">
               Nous avons pour le moment deux partenaires actifs.
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/62">
+            <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/60">
               Une presentation plus simple, plus nette et plus credible avec les vrais logos.
             </p>
           </div>
@@ -650,27 +659,29 @@ export default function Home() {
         </section>
 
         <section id="contact" className="container-x py-16 md:py-24">
-          <div className="reveal card ring-glow overflow-hidden rounded-[2.2rem] p-8 md:p-10">
+          <div className="reveal glass-card ring-glow overflow-hidden rounded-[2.2rem] p-8 md:p-10">
             <div className="grid gap-8 md:grid-cols-12 md:items-center">
               <div className="md:col-span-7">
-                <div className="text-xs font-semibold uppercase tracking-[0.26em] text-white/38">Contact</div>
-                <h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
+                <div className="text-xs font-semibold uppercase tracking-[0.26em]" style={{ color: 'var(--gold-bright)' }}>Contact</div>
+                <h2 className="mt-4 font-serif text-3xl font-bold tracking-tight text-white md:text-4xl">
                   Dis-moi quel hotel ou quel seminaire tu veux organiser.
                 </h2>
-                <p className="mt-3 max-w-xl text-sm leading-7 text-white/66">
+                <p className="mt-3 max-w-xl text-sm leading-7 text-white/70">
                   Envoie les dates, la ville, le nombre de personnes, le budget et le cadre du besoin. On revient avec
                   une selection claire et rapide.
                 </p>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <a
-                    className="inline-flex h-12 items-center justify-center rounded-full border border-white/16 bg-white/[0.03] px-6 text-sm font-semibold text-white transition hover:border-white/24 hover:bg-white/[0.06]"
-                    href="mailto:contact@opalenoire.tn?subject=Demande%20de%20reservation%20-%20Opale%20Noire"
+                    className="inline-flex h-12 items-center justify-center rounded-full border px-6 text-sm font-semibold text-white transition hover:bg-white/[0.04] active:scale-[0.98]"
+                    style={{ borderColor: 'var(--gold-muted)' }}
+                    href="mailto:mahaltravel@gmail.com?subject=Demande%20de%20reservation%20-%20Mahal%20Travel"
                   >
                     Envoyer un email
                   </a>
                   <a
-                    className="inline-flex h-12 items-center justify-center rounded-full bg-green-500 px-6 text-sm font-semibold text-black transition hover:scale-[1.01] hover:bg-green-400"
+                    className="inline-flex h-12 items-center justify-center rounded-full px-6 text-sm font-bold text-black transition hover:scale-[1.01] active:scale-[0.98]"
+                    style={{ backgroundColor: 'var(--accent)' }}
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -681,28 +692,28 @@ export default function Home() {
               </div>
 
               <div className="md:col-span-5">
-                <div className="rounded-[1.9rem] border border-white/10 bg-black/22 p-6">
-                  <div className="text-base font-semibold text-white">Opale Noire</div>
-                  <div className="mt-2 text-sm text-white/56">Hotels, groupes et seminaires en Tunisie</div>
+                <div className="rounded-[1.9rem] border bg-black/40 p-6" style={{ borderColor: 'oklch(0.72 0.11 75 / 0.15)' }}>
+                  <div className="font-serif text-xl font-bold text-gold-bright">Mahal Travel</div>
+                  <div className="mt-2 text-xs text-white/50">Hotels, groupes et seminaires en Tunisie</div>
 
                   <div className="mt-6 space-y-4 text-sm">
                     <div className="flex items-center justify-between gap-4">
-                      <span className="text-white/55">Telephone</span>
-                      <a className="font-semibold text-white transition hover:text-white/80" href="tel:+21698503197">
+                      <span className="text-white/50">Telephone</span>
+                      <a className="font-semibold text-white transition hover:text-gold" href="tel:+21698503197">
                         +216 98 503 197
                       </a>
                     </div>
                     <div className="flex items-center justify-between gap-4">
-                      <span className="text-white/55">Email</span>
+                      <span className="text-white/50">Email</span>
                       <a
-                        className="font-semibold text-white transition hover:text-white/80"
-                        href="mailto:contact@opalenoire.tn"
+                        className="font-semibold text-white transition hover:text-gold"
+                        href="mailto:mahaltravel@gmail.com"
                       >
-                        contact@opalenoire.tn
+                        mahaltravel@gmail.com
                       </a>
                     </div>
                     <div className="flex items-center justify-between gap-4">
-                      <span className="text-white/55">Presence</span>
+                      <span className="text-white/50">Presence</span>
                       <span className="font-semibold text-white">Basee en Tunisie</span>
                     </div>
                   </div>
@@ -717,8 +728,9 @@ export default function Home() {
         type="button"
         aria-label="Revenir en haut"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className={`fixed bottom-5 right-5 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/14 bg-black/60 text-white shadow-[0_18px_45px_rgba(0,0,0,0.32)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-white/22 hover:bg-black/75 md:bottom-7 md:right-7 ${showBackToTop ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        className={`fixed bottom-5 right-5 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full border text-white shadow-[0_18px_45px_rgba(0,0,0,0.32)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:text-gold-bright md:bottom-7 md:right-7 ${showBackToTop ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
           }`}
+        style={{ borderColor: 'oklch(0.72 0.11 75 / 0.25)', background: 'oklch(0.11 0.015 260 / 0.8)' }}
       >
         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
           <path d="m6 14 6-6 6 6" strokeLinecap="round" strokeLinejoin="round" />

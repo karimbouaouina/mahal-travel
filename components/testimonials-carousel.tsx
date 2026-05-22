@@ -20,8 +20,9 @@ function Stars({ value }: { value: number }) {
         <svg
           key={i}
           viewBox="0 0 24 24"
-          className={`h-4 w-4 ${i < full ? "text-white" : "text-white/20"}`}
+          className="h-4 w-4"
           fill="currentColor"
+          style={{ color: i < full ? 'var(--gold)' : 'oklch(0.72 0.11 75 / 0.15)' }}
           aria-hidden="true"
         >
           <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
@@ -45,7 +46,8 @@ function ArrowButton({
       type="button"
       onClick={onClick}
       aria-label={label}
-      className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/12 bg-white/[0.04] text-white/90 transition hover:bg-white/[0.08]"
+      className="inline-flex h-12 w-12 items-center justify-center rounded-full border text-white transition hover:-translate-y-0.5 hover:text-gold-bright"
+      style={{ borderColor: 'oklch(0.72 0.11 75 / 0.25)', background: 'oklch(0.11 0.015 260 / 0.8)' }}
     >
       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
         {dir === "left" ? (
@@ -106,41 +108,43 @@ export function TestimonialsCarousel({
       <div className="mx-auto max-w-5xl">
         <div
           key={index}
-          className="testimonial-stage relative overflow-hidden rounded-[2.4rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.11),rgba(255,255,255,0.04))] p-6 shadow-[0_26px_100px_rgba(0,0,0,0.45)] md:p-8"
+          className="testimonial-stage relative overflow-hidden rounded-[2.4rem] border p-6 shadow-[0_26px_100px_rgba(0,0,0,0.45)] md:p-8"
+          style={{ borderColor: 'oklch(0.72 0.11 75 / 0.18)', background: 'linear-gradient(180deg, oklch(0.14 0.012 260 / 0.8), oklch(0.11 0.015 260 / 0.5))' }}
         >
-          <div className="pointer-events-none absolute inset-x-14 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-          <div className="pointer-events-none absolute -right-24 top-8 h-56 w-56 rounded-full bg-white/10 blur-3xl" />
-          <div className="pointer-events-none absolute -left-16 bottom-0 h-44 w-44 rounded-full bg-white/6 blur-3xl" />
+          <div className="pointer-events-none absolute inset-x-14 top-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+          <div className="pointer-events-none absolute -right-24 top-8 h-56 w-56 rounded-full blur-3xl opacity-10" style={{ backgroundColor: 'var(--gold)' }} />
+          <div className="pointer-events-none absolute -left-16 bottom-0 h-44 w-44 rounded-full blur-3xl opacity-5" style={{ backgroundColor: 'var(--gold)' }} />
 
           <div className="relative">
             <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
               <div className="max-w-3xl">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs uppercase tracking-[0.24em] text-white/52">
-                  <span className="inline-flex h-2 w-2 rounded-full bg-white/75" />
+                <div className="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs uppercase tracking-[0.24em]" style={{ borderColor: 'oklch(0.72 0.11 75 / 0.25)', backgroundColor: 'oklch(0.72 0.11 75 / 0.05)', color: 'var(--gold-bright)' }}>
+                  <span className="inline-flex h-2 w-2 rounded-full" style={{ backgroundColor: 'var(--gold)' }} />
                   Avis recent
                 </div>
 
-                <blockquote className="mt-6 text-3xl font-semibold leading-[1.28] tracking-tight text-white md:text-[3rem]">
+                <blockquote className="gold-quote font-serif relative mt-8 text-2xl font-bold leading-[1.35] tracking-tight text-white md:text-4xl pl-6">
                   &quot;{active.content}&quot;
                 </blockquote>
               </div>
 
-              <div className="rounded-[1.7rem] border border-white/10 bg-black/20 p-5 md:min-w-[230px]">
+              <div className="rounded-[1.7rem] border bg-black/35 p-5 md:min-w-[230px]" style={{ borderColor: 'oklch(0.72 0.11 75 / 0.15)' }}>
                 <div className="text-xs uppercase tracking-[0.22em] text-white/38">Note</div>
-                <div className="mt-3 text-5xl font-semibold text-white">{active.rating.toFixed(1)}</div>
-                <div className="mt-2 text-sm text-white/48">Retour client confirme</div>
+                <div className="mt-3 text-5xl font-bold text-gold-bright">{active.rating.toFixed(1)}</div>
+                <div className="mt-2 text-xs text-white/40">Retour client confirme</div>
                 <div className="mt-5">
                   <Stars value={active.rating} />
                 </div>
               </div>
             </div>
 
-            <div className="mt-10 flex flex-col gap-5 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
+            <div className="mt-10 flex flex-col gap-5 border-t pt-6 md:flex-row md:items-center md:justify-between" style={{ borderColor: 'oklch(0.72 0.11 75 / 0.18)' }}>
               <div className="flex items-center gap-4">
                 <Image
                   src={active.avatar}
                   alt={active.name}
-                  className="h-14 w-14 rounded-2xl border border-white/10 bg-white/5 object-contain p-1"
+                  className="h-14 w-14 rounded-2xl border bg-white/5 object-contain p-1"
+                  style={{ borderColor: 'oklch(0.72 0.11 75 / 0.15)' }}
                   width={56}
                   height={56}
                   loading="lazy"
@@ -170,9 +174,9 @@ export function TestimonialsCarousel({
                     type="button"
                     onClick={() => goTo(i)}
                     aria-label={`Afficher l'avis de ${testimonial.name}`}
-                    className={`h-2.5 rounded-full transition ${
-                      isActive ? "w-10 bg-white" : "w-2.5 bg-white/25 hover:bg-white/45"
-                    }`}
+                    className={`h-2.5 rounded-full transition ${isActive ? "w-10" : "w-2.5 hover:bg-white/45"
+                      }`}
+                    style={{ backgroundColor: isActive ? 'var(--gold)' : 'oklch(0.72 0.11 75 / 0.25)' }}
                   />
                 );
               })}

@@ -1,15 +1,15 @@
 {
-  "name": "Opale Noire",
-  "short_name": "Opale Noire",
+  "name": "Mahal Travel",
+  "short_name": "Mahal Travel",
   "description": "Reservations d'hotels, groupes et seminaires en Tunisie.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#07070a",
-  "theme_color": "#07070a",
+  "background_color": "#07080d",
+  "theme_color": "#c4a24d",
   "lang": "fr",
   "icons": [
     {
-      "src": "/images/whiteOutlineLogoWithoutText.png",
+      "src": "/logo-mahalTravel-white-transparent.png",
       "sizes": "512x512",
       "type": "image/png"
     }

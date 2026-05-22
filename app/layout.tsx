@@ -1,25 +1,38 @@
 import type { Metadata, Viewport } from "next";
+import { Fraunces, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 
 const siteUrl = "https://opalenoiretravel.vercel.app";
 
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
+const instrumentSans = Instrument_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
 export const viewport: Viewport = {
-  themeColor: "#07070a",
+  themeColor: "#0b0b0e",
   colorScheme: "dark",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Opale Noire | Reservation d'hotels et seminaires en Tunisie",
-    template: "%s | Opale Noire",
+    default: "Mahal Travel | Reservation d'hotels et seminaires en Tunisie",
+    template: "%s | Mahal Travel",
   },
   description:
-    "Opale Noire accompagne les reservations d'hotels, groupes et seminaires en Tunisie avec un focus sur Sousse, Hammamet et Monastir.",
-  applicationName: "Opale Noire",
+    "Mahal Travel accompagne les reservations d'hotels, groupes et seminaires en Tunisie avec un focus sur Sousse, Hammamet, Monastir, Djerba et Tabarka.",
+  applicationName: "Mahal Travel",
   referrer: "origin-when-cross-origin",
   keywords: [
-    "Opale Noire",
+    "Mahal Travel",
     "reservation hotel Tunisie",
     "hotel Sousse",
     "seminaire Tunisie",
@@ -33,18 +46,18 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   category: "travel",
-  authors: [{ name: "Opale Noire" }],
-  creator: "Opale Noire",
-  publisher: "Opale Noire",
+  authors: [{ name: "Mahal Travel" }],
+  creator: "Mahal Travel",
+  publisher: "Mahal Travel",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
   icons: {
-    icon: [{ url: "/icon.png", type: "image/png", sizes: "32x32" }],
-    shortcut: ["/favicon-32x32.png"],
-    apple: [{ url: "/images/whiteOutlineLogoWithoutText.png" }],
+    icon: [{ url: "/logo-mahalTravel-white-transparent.png", type: "image/png" }],
+    shortcut: ["/logo-mahalTravel-white-transparent.png"],
+    apple: [{ url: "/logo-mahalTravel-white-transparent.png" }],
   },
   robots: {
     index: true,
@@ -62,25 +75,25 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_TN",
     url: siteUrl,
-    siteName: "Opale Noire",
-    title: "Opale Noire | Reservation d'hotels et seminaires en Tunisie",
+    siteName: "Mahal Travel",
+    title: "Mahal Travel | Reservation d'hotels et seminaires en Tunisie",
     description:
-      "Selection d'hotels, reservations groupes et accompagnement seminaire en Tunisie, avec un focus fort sur Sousse.",
+      "Selection d'hotels, reservations groupes et accompagnement seminaire en Tunisie, avec une approche d'exception.",
     images: [
       {
-        url: "/images/ONWINDOW.png",
-        width: 1280,
-        height: 718,
-        alt: "Apercu du site Opale Noire",
+        url: "/fullLogoMahalTravel-white-transparent.png",
+        width: 1200,
+        height: 630,
+        alt: "Mahal Travel Tunisie",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Opale Noire | Reservation d'hotels et seminaires en Tunisie",
+    title: "Mahal Travel | Reservation d'hotels et seminaires en Tunisie",
     description:
-      "Reservations d'hotels, groupes et seminaires en Tunisie avec un focus fort sur Sousse.",
-    images: ["/images/ONWINDOW.png"],
+      "Reservations d'hotels, groupes et seminaires en Tunisie avec une approche d'exception.",
+    images: ["/fullLogoMahalTravel-white-transparent.png"],
   },
 };
 
@@ -91,7 +104,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="h-full antialiased">
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className={`${instrumentSans.variable} ${fraunces.variable} font-sans min-h-full flex flex-col bg-background text-foreground`}>
         {children}
       </body>
     </html>
